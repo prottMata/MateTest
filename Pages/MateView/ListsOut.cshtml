@@ -1,0 +1,45 @@
+﻿@page
+@model MateTest2.Pages.MateView.ListsOutModel
+@{
+    ViewData["Title"] = "Tasks";
+}
+<h1>Tasks</h1>
+
+<p>
+    <a asp-page="CreateTask" asp-route-id="@Model.CurrentListId">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListsTasks[0].IdLists)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListsTasks[0].IdTasksNavigation.Taskname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListsTasks[0].IdTasksNavigation.IdStatusNavigation.Statusname)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ListsTasks)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdLists)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTasksNavigation.Taskname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTasksNavigation.IdStatusNavigation.Statusname)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,54 @@
+﻿@page
+@model MateTest2.Pages.MateView.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.List[0].Listname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.List[0].DefaultList)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.List[0].Hobby)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.List[0].Users)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.List) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Listname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DefaultList)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hobby)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Users.UserLogin)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./ListsOut" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

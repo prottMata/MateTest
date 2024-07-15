@@ -1,0 +1,43 @@
+﻿@page
+@model MateTest2.Pages.MateView.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>List</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.List.Listname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.List.Listname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.List.DefaultList)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.List.DefaultList)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.List.Hobby)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.List.Hobby)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.List.Users)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.List.Users.UserLogin)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.List.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
